@@ -3,11 +3,12 @@ from odoo.tests import TransactionCase
 
 
 class TestConstructionReport(TransactionCase):
+    """Тесты для модуля construction"""
 
     def setUp(self):
         super(TestConstructionReport, self).setUp()
         self.construction_report = self.env['construction.report']
-        self.construction_work = self.env['construction.work']
+        self.construction_work = self.env['construction.report.lines']
 
     def test_01_construction_report_name(self):
         """Проверка создания отчета с правильным именем"""
@@ -103,7 +104,7 @@ class TestConstructionReport(TransactionCase):
                 }
             )
 
-    def test_06_construction_report_constraints_time_total_more_24(self):
+    def test_07_construction_report_constraints_time_total_less_24(self):
         """
         Проверка невозможности создания отчета
         с суммарным временем меньше 24 часов:

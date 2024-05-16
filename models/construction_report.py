@@ -50,7 +50,7 @@ class ConstructionReport(models.Model):
     ], string='Погодные условия')
 
     customer = fields.Char('Заказчик')
-    work_line_ids = fields.One2many('construction.work', 'report_id')
+    work_line_ids = fields.One2many('construction.report.lines', 'report_id')
 
     @api.constrains('work_line_ids')
     def _check_time_intervals(self):
@@ -128,8 +128,8 @@ class ConstructionReportLines(models.Model):
     _compute_time_total():
         суммарное время работ
     """
-    _name = 'construction.work'
-    _description = 'Construction Work'
+    _name = 'construction.report.lines'
+    _description = 'Construction Report Lines'
 
     report_id = fields.Many2one(
         'construction.report',
