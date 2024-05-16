@@ -5,10 +5,9 @@
     'author': "Rydlab",
     'website': "https://rydlab.ru/",
     'category': 'Uncategorized',
-    'version': '16.0.0',
+    'version': '16.0.0.1.1',
     'depends': ['base',],
     'data': [
-        # 'security/groups.xml',
         'security/ir.model.access.csv',
         'views/construction_report.xml'
     ],
