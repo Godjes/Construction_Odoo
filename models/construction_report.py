@@ -31,6 +31,7 @@ class ConstructionReport(models.Model):
     """
     _name = 'construction.report'
     _description = 'Construction Report'
+    _inherit = ['mail.thread',]
 
     date = fields.Date(
         'Дата отчета',
@@ -50,7 +51,26 @@ class ConstructionReport(models.Model):
     ], string='Погодные условия')
 
     customer = fields.Char('Заказчик')
-    work_line_ids = fields.One2many('construction.report.lines', 'report_id')
+    work_line_ids = fields.One2many(
+        'construction.report.lines',
+        'report_id'
+    )
+    stage_id = fields.Many2one(
+        'construction.report.stage',
+        default=lambda self:
+        self.env['construction.report.stage'].search(
+            [('name', '=', 'Новый')], limit=1), tracking=True
+    )
+
+    def action_submit_for_approval(self):
+        review_stage = self.env['construction.report.stage'].search(
+            [('name', '=', 'На согласовании')], limit=1)
+        self.write({'stage_id': review_stage.id})
+
+    def action_approve_report(self):
+        approved_stage = self.env['construction.report.stage'].search(
+            [('name', '=', 'Согласован')], limit=1)
+        self.write({'stage_id': approved_stage.id})
 
     @api.constrains('work_line_ids')
     def _check_time_intervals(self):
@@ -98,7 +118,8 @@ class ConstructionReport(models.Model):
         """
         result = []
         for record in self:
-            rec_name = "Отчет за (%s)" % (record.date)
+            rec_name = "Отчет за (%s) (%s)" % (
+                record.date, record.stage_id.name)
             result.append((record.id, rec_name))
         return result
 
@@ -135,21 +156,97 @@ class ConstructionReportLines(models.Model):
         'construction.report',
         'Отчёт'
     )
+    work_id = fields.Many2one(
+        'construction.work.list',
+        'Название работы',
+        required=True
+    )
     time_from = fields.Float(
         'Время от',
-        digits=(2, 1)
+        digits=(2, 1),
+        store=True
     )
     time_to = fields.Float(
         'Время до',
-        digits=(2, 1)
+        digits=(2, 1),
+        store=True
     )
     time_total = fields.Float(
         'Итого часов',
-        compute='_compute_time_total')
-    work_name = fields.Char('Наименование работы')
+        compute='_compute_time_total',
+        store=True)
+
+    work_category_id = fields.Many2one(
+        related='work_id.category_id',
+        store=True)
+
+    date = fields.Date(related='report_id.date')
 
     @api.depends('time_from', 'time_to')
     def _compute_time_total(self):
         """Суммарное время выполнения работы"""
         for work in self:
             work.time_total = work.time_to - work.time_from
+
+
+class ConstructionsWorkList(models.Model):
+    """
+     Класс для представления списка работ.
+    ...
+    Атрибуты
+    --------
+    _name : str
+        название модели в БД
+    __description : str
+        описание класса
+    name : str
+        Наименование работы
+    description : str
+        Описание работы
+    category_id : int
+        Категория работы
+    """
+    _name = 'construction.work.list'
+    _description = 'Work list'
+
+    name = fields.Char(
+        'Наименование работы',
+        required=True
+    )
+    description = fields.Text('Описание работы')
+    category_id = fields.Many2one(
+        'construction.category',
+        string='Категория работы',
+    )
+
+
+class ConstructionReportStage(models.Model):
+    """
+     Класс для представления этапа работ.
+    ...
+    Атрибуты
+    --------
+    _name : str
+        название модели в БД
+    __description : str
+        описание класса
+    name : str
+        Наименование этапа
+    sequence : int
+        Очередность этапа
+    fold : bool
+        возомжность перенести часть этапов в папку
+    report_state: str
+        этапы отчета
+    """
+    _name = 'construction.report.stage'
+    _order = 'sequence, name'
+
+    name = fields.Char()
+    sequence = fields.Integer()
+    fold = fields.Boolean()
+    report_state = fields.Selection([
+        ('new', 'Новый'),
+        ('review', 'На согласовании'),
+        ('approved', 'Согласован'),
+    ], 'State', default='new')

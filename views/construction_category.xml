@@ -1,0 +1,23 @@
+<odoo>
+    <record id="view_construction_work_category_form" model="ir.ui.view">
+        <field name="name">construction.category.form</field>
+        <field name="model">construction.category</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <field name="name"/>
+                    <field name="work_ids"/>
+                    <button type="object" name="action_open_works" string="Работы" class="oe_highlight"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_construction_work_category" model="ir.actions.act_window">
+        <field name="name">Категории работ</field>
+        <field name="res_model">construction.category</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_construction_category" name="Категории работ" parent="menu_construction" action="action_construction_work_category" sequence="20" />
+</odoo>

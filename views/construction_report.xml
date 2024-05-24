@@ -4,6 +4,9 @@
         <field name="model">construction.report</field>
         <field name="arch" type="xml">
             <form>
+                <header>
+                    <field name="stage_id" widget="statusbar" options="{'clickable': '1', 'fold_field': 'fold'}"/>
+                </header>
                 <sheet>
                     <group>
                         <field name="date"/>
@@ -11,15 +14,24 @@
                         <field name="weather_conditions"/>
                         <field name="customer"/>
                     </group>
-                        <field name="work_line_ids" mode="tree">
-                            <tree editable="bottom">
-                                <field name="time_from" widget="float_time"/>
-                                <field name="time_to" widget="float_time"/>
-                                <field name="time_total" widget="float_time"/>
-                                <field name="work_name"/>
-                            </tree>
-                        </field>
+                    <field name="work_line_ids" mode="tree">
+                        <tree editable="bottom">
+                            <field name="time_from" widget="float_time"/>
+                            <field name="time_to" widget="float_time"/>
+                            <field name="time_total" widget="float_time"/>
+                            <field name="work_id"/>
+                        </tree>
+                    </field>
+                    <group>
+                        <button type="object" name="action_submit_for_approval" string="Отправить на согласование" class="btn-primary"/>
+                        <button type="object" name="action_approve_report" string="Согласовать" class="btn-primary"/>                       
+                    </group>
                 </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
             </form>
         </field>
     </record>
@@ -37,12 +49,52 @@
         </field>
     </record>
 
+    
+
+    <record id="view_construction_report_pivot" model="ir.ui.view">
+        <field name="model">construction.report.lines</field>
+        <field name="arch" type="xml">
+            <pivot disable_linking="true">
+                <field name="time_total" type="measure"/>
+                <field name="work_category_id" type="row"/>
+            </pivot>
+        </field>
+    </record>
+    
+
+    <record id="action_construction_report_pivot" model="ir.actions.act_window">
+        <field name="name">Статистика работ</field>
+        <field name="res_model">construction.report.lines</field>
+        <field name="view_mode">pivot</field>
+        <field name="view_id" ref="view_construction_report_pivot"/>
+    </record>
+
     <record id="action_construction_report" model="ir.actions.act_window">
         <field name="name">Construction Reports</field>
         <field name="res_model">construction.report</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">tree,form,pivot</field>
+    </record>
+
+    <record id="construction_report_view_search" model="ir.ui.view">
+        <field name="name">Construction search</field>
+        <field name="model">construction.report</field>
+        <field name="arch" type="xml">
+            <search>
+                <filter string="Дата" name="Дата" date="date"/>
+                    <separator />
+                    <filter invisible="1" string="Late Activities" name="activities_overdue"
+                        domain="[('date', '&lt;', context_today().strftime('%Y-%m-%d'))]"
+                        help="Show all records which has next action date is before today"/>
+                    <filter invisible="1" string="Today Activities" name="activities_today"
+                        domain="[('date', '=', context_today().strftime('%Y-%m-%d'))]"/>
+                    <filter invisible="1" string="Future Activities" name="activities_upcoming_all"
+                        domain="[('date', '&gt;', context_today().strftime('%Y-%m-%d'))]"/>
+            </search>
+        </field>
     </record>
 
     <menuitem id="menu_construction" name="Construction" />
-    <menuitem id="menu_construction_report" name="Reports" parent="menu_construction" action="action_construction_report" />
+    <menuitem id="menu_construction_statistics" name="Статистика работ" parent="menu_construction" action="action_construction_report_pivot" sequence="30" />  
+    <menuitem id="menu_construction_report" name="Отчеты" parent="menu_construction" action="action_construction_report" sequence="10" />
+      
 </odoo>

@@ -1,3 +1,6 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_report,construction.report_default,model_construction_report,,1,1,1,1
 access_work,construction.work_default,model_construction_report_lines,,1,1,1,1
+acces_stage,construction.stage_default,model_construction_report_stage,,1,1,1,1
+acces_work_list,construction.work_list_default,model_construction_work_list,,1,1,1,1
+acces_category,construction.category_default,model_construction_category,,1,1,1,1
