@@ -1,14 +1,18 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Construction",  
+    'name': "Construction",
     'description': """Для отчета о проделанной работе""",
     'author': "Rydlab",
     'website': "https://rydlab.ru/",
-    'category': 'Uncategorized',
+    'category': 'Construction',
     'version': '16.0.0.2.1',
-    'depends': ['base',],
+    'depends': ['base', 'mail', 'contacts'],
     'data': [
+        #'security/groups.xml',
         'security/ir.model.access.csv',
-        'views/construction_report.xml'
+        'views/construction_report.xml',
+        'data/report_stage.xml',
+        'views/construction_category.xml',
+        'views/construction_work.xml'
     ],
 }

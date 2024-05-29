@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <record id="view_construction_works_tree" model="ir.ui.view">
+        <field name="name">construction.works.tree</field>
+        <field name="model">construction.work</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="category_id"/>
+            </tree>
+        </field>
+    </record>
+
+        <record id="search_category" model="ir.ui.view">
+        <field name="model">construction.work</field>
+        <field name="arch" type="xml">
+            <search>
+                <group expand="0" string="Group By">
+                    <filter string="Category" name="category" context="{'group_by':'category_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_construction_works" model="ir.actions.act_window">
+        <field name="name">Construction Works</field>
+        <field name="res_model">construction.work</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{"search_default_category": 1}</field>
+
+    </record>
+    
+    <menuitem id="menu_construction_works" name="Работы" parent="menu_construction" action="view_construction_works" sequence="25" />
+
+
+</odoo>
