@@ -6,6 +6,8 @@
             <form>
                 <header>
                     <field name="stage_id" widget="statusbar" options="{'clickable': '1', 'fold_field': 'fold'}"/>
+                    <button type="object" name="action_submit_for_approval" string="Отправить на согласование" class="btn-primary"/>
+                    <button type="object" name="action_approve_report" string="Согласовать" class="btn-primary"/>
                 </header>
                 <sheet>
                     <group>
@@ -22,10 +24,6 @@
                             <field name="work_id"/>
                         </tree>
                     </field>
-                    <group>
-                        <button type="object" name="action_submit_for_approval" string="Отправить на согласование" class="btn-primary"/>
-                        <button type="object" name="action_approve_report" string="Согласовать" class="btn-primary"/>                       
-                    </group>
                 </sheet>
                 <div class="oe_chatter">
                     <field name="message_follower_ids" widget="mail_followers"/>
@@ -75,9 +73,9 @@
         <field name="view_mode">tree,form,pivot</field>
     </record>
 
-    <record id="construction_report_view_search" model="ir.ui.view">
+    <record id="construction_report_pivot_search" model="ir.ui.view">
         <field name="name">Construction search</field>
-        <field name="model">construction.report</field>
+        <field name="model">construction.report.lines</field>
         <field name="arch" type="xml">
             <search>
                 <filter string="Дата" name="Дата" date="date"/>
@@ -92,6 +90,9 @@
             </search>
         </field>
     </record>
+
+    
+
 
     <menuitem id="menu_construction" name="Construction" />
     <menuitem id="menu_construction_statistics" name="Статистика работ" parent="menu_construction" action="action_construction_report_pivot" sequence="30" />  

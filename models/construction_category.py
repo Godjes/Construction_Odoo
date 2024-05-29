@@ -2,35 +2,24 @@ from odoo import fields, models
 
 
 class ConstructionCategory(models.Model):
-    """
-     Класс для представления категорий работ.
-    ...
-    Атрибуты
-    --------
-    _name : str
-        название модели в БД
-    __description : str
-        описание класса
-    name : str
-        категория работы
-    work_ids : int
-        работа относящаяся к категории
-    Методы
-    ------
-    action_open_works():
-        Отображение работ связанных с категорией
-    """
+
     _name = 'construction.category'
-    _description = 'Construction Category'
+    _description = 'Категории для работ'
 
     name = fields.Char(
-        'Название категории',
+        'Категория',
         required=True
     )
     work_ids = fields.One2many(
-        'construction.work.list',
+        'construction.work',
         'category_id',
         string='Работы')
+
+    works_count = fields.Integer(compute='compute_count')
+
+    def compute_count(self):
+        for record in self:
+            record.works_count = record.works_count = len(record.work_ids)
 
     def action_open_works(self):
         """Отображение работ связанных с категорией"""
@@ -38,7 +27,7 @@ class ConstructionCategory(models.Model):
         return {
             'type': 'ir.actions.act_window',
             'name': 'Работы',
-            'res_model': 'construction.work.list',
+            'res_model': 'construction.work',
             'view_mode': 'tree,form',
             'domain': [('category_id', '=', self.id)],
             'context': {'default_category_id': self.id},

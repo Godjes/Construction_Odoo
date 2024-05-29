@@ -13,5 +13,6 @@
         'views/construction_report.xml',
         'data/report_stage.xml',
         'views/construction_category.xml',
+        'views/construction_work.xml'
     ],
 }

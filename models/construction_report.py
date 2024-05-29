@@ -3,34 +3,8 @@ from odoo.exceptions import ValidationError
 
 
 class ConstructionReport(models.Model):
-    """
-     Класс для представления отчета о работе.
-    ...
-    Атрибуты
-    --------
-    _name : str
-        название модели в БД
-    __description : str
-        описание класса
-    date : date
-        дата заполнения отчета
-    weather_conditions : str
-        Погодные условия
-    work_line_ids : str
-        отчет
-    customer : str
-        заказчик
-    responsible_user_id : str
-        Отвественный
-    Методы
-    ------
-    _check_time_intervals():
-        Валидация введеных данных
-    name_get()
-        Кастомизирует название отчета
-    """
     _name = 'construction.report'
-    _description = 'Construction Report'
+    _description = 'Отчет о проделанной работе'
     _inherit = ['mail.thread',]
 
     date = fields.Date(
@@ -58,18 +32,16 @@ class ConstructionReport(models.Model):
     stage_id = fields.Many2one(
         'construction.report.stage',
         default=lambda self:
-        self.env['construction.report.stage'].search(
-            [('name', '=', 'Новый')], limit=1), tracking=True
+        self.env.ref('construction.stage_new'),
+        tracking=True
     )
 
     def action_submit_for_approval(self):
-        review_stage = self.env['construction.report.stage'].search(
-            [('name', '=', 'На согласовании')], limit=1)
+        review_stage = self.env.ref('construction.stage_review')
         self.write({'stage_id': review_stage.id})
 
     def action_approve_report(self):
-        approved_stage = self.env['construction.report.stage'].search(
-            [('name', '=', 'Согласован')], limit=1)
+        approved_stage = self.env.ref('construction.stage_approved')
         self.write({'stage_id': approved_stage.id})
 
     @api.constrains('work_line_ids')
@@ -125,39 +97,16 @@ class ConstructionReport(models.Model):
 
 
 class ConstructionReportLines(models.Model):
-    """
-     Класс для представления отчета о работе.
-    ...
-    Атрибуты
-    --------
-    _name : str
-        название модели в БД
-    __description : str
-        описание класса
-    report_id : int
-        отчет
-    time_from : float
-        начало работ
-    time_to : float
-        окончание работ
-    time_total : float
-        время работ
-    work_name : str
-        название работы
-    Методы
-    ------
-    _compute_time_total():
-        суммарное время работ
-    """
+
     _name = 'construction.report.lines'
-    _description = 'Construction Report Lines'
+    _description = 'Строки заполнения отчета'
 
     report_id = fields.Many2one(
         'construction.report',
         'Отчёт'
     )
     work_id = fields.Many2one(
-        'construction.work.list',
+        'construction.work',
         'Название работы',
         required=True
     )
@@ -189,25 +138,10 @@ class ConstructionReportLines(models.Model):
             work.time_total = work.time_to - work.time_from
 
 
-class ConstructionsWorkList(models.Model):
-    """
-     Класс для представления списка работ.
-    ...
-    Атрибуты
-    --------
-    _name : str
-        название модели в БД
-    __description : str
-        описание класса
-    name : str
-        Наименование работы
-    description : str
-        Описание работы
-    category_id : int
-        Категория работы
-    """
-    _name = 'construction.work.list'
-    _description = 'Work list'
+class ConstructionsWork(models.Model):
+
+    _name = 'construction.work'
+    _description = 'Перечень работ'
 
     name = fields.Char(
         'Наименование работы',
@@ -221,25 +155,9 @@ class ConstructionsWorkList(models.Model):
 
 
 class ConstructionReportStage(models.Model):
-    """
-     Класс для представления этапа работ.
-    ...
-    Атрибуты
-    --------
-    _name : str
-        название модели в БД
-    __description : str
-        описание класса
-    name : str
-        Наименование этапа
-    sequence : int
-        Очередность этапа
-    fold : bool
-        возомжность перенести часть этапов в папку
-    report_state: str
-        этапы отчета
-    """
+
     _name = 'construction.report.stage'
+    _description = 'Этапы отчета'
     _order = 'sequence, name'
 
     name = fields.Char()
