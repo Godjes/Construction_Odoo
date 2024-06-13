@@ -4,22 +4,22 @@ from odoo import fields, models
 class ConstructionCategory(models.Model):
 
     _name = 'construction.category'
-    _description = 'Категории для работ'
+    _description = 'Categories for Works'
 
     name = fields.Char(
-        'Категория',
+        'Category',
         required=True
     )
     work_ids = fields.One2many(
         'construction.work',
         'category_id',
-        string='Работы')
+        string='Works')
 
     works_count = fields.Integer(compute='compute_count')
 
     def compute_count(self):
         for record in self:
-            record.works_count = record.works_count = len(record.work_ids)
+            record.works_count = len(record.work_ids)
 
     def action_open_works(self):
         """Отображение работ связанных с категорией"""

@@ -1,0 +1,211 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* construction
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0+e-20210305\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-13-06 07:12+0000\n"
+"PO-Revision-Date: 2021-10-04 07:12+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: construction
+#: model:ir.model,name:construction.model_construction_report
+msgid "Report on Work Done"
+msgstr "Отчет о проделанной работе"
+
+#. module: construction
+#: model:ir.model.fields.selection,name:construction.selection__construction_report__weather_conditions__sunny
+msgid "Sunny"
+msgstr "Солнечно"
+
+#. module: construction
+#: model:ir.model.fields.selection,name:construction.selection__construction_report__weather_conditions__partly_cloudy
+msgid "Partly cloudy"
+msgstr "Облачно"
+
+#. module: construction
+#: model:ir.model.fields.selection,name:construction.selection__construction_report__weather_conditions__rain
+msgid "Rain"
+msgstr "Дождь"
+
+#. module: construction
+#: model:ir.model.fields.selection,name:construction.selection__construction_report__weather_conditions__snow
+msgid "Snow"
+msgstr "Снег"
+
+#. module: construction
+#: model:ir.model.fields.selection,name:construction.selection__construction_report__weather_conditions__fog
+msgid "Fog"
+msgstr "Туиан"
+
+#. module: construction
+#: model:ir.model.fields,field_description:construction.field_construction_report__date
+msgid "Report Date"
+msgstr "Дата отчета"
+
+#. module: construction
+#: model:ir.model.fields,field_description:construction.field_construction_report__work_line_ids
+msgid "Work Lines"
+msgstr "Количество Записей"
+
+
+#. module: construction
+#: model:ir.model.fields,field_description:construction.field_construction_report__responsible_user_id
+msgid "Responsible User"
+msgstr "Ответственный"
+
+#. module: construction
+#: model:ir.model.fields,field_description:construction.field_construction_report__weather_conditions
+msgid "Weather Conditions"
+msgstr "Погодные условия"
+
+#. module: construction
+#: model:ir.model.fields,field_description:construction.field_construction_report__customer
+msgid "Customer"
+msgstr "Заказчик"
+
+#. module: construction
+#: model:ir.model.fields,field_description:construction.field_construction_report__customer
+msgid "Customer"
+msgstr "Заказчик"
+
+#. module: construction
+#: model:ir.model.fields,field_description:construction.field_construction_report__construction_object_ids
+msgid "Object Of Construction"
+msgstr "Объект Строительства"
+
+#. module: construction
+#: model:ir.model,name:construction.model_construction_report_lines
+msgid "Report Lines
+msgstr "Строки отчета"
+
+#. module: construction
+#: model:ir.model.fields,field_description:construction.field_construction_report_lines__time_from
+msgid "Time From"
+msgstr "Время от"
+
+#. module: construction
+#: model:ir.model.fields,field_description:construction.field_construction_report_lines__time_to
+msgid "Time To"
+msgstr "Время до"
+
+#. module: construction
+#: model:ir.model.fields,field_description:construction.field_construction_report_lines__time_total
+msgid "Total Hours"
+msgstr "Итого часов"
+
+#. module: construction
+#: model:ir.model.fields,field_description:construction.field_construction_report_lines__work_id
+msgid "Work Name"
+msgstr "Название работы"
+
+#. module: construction
+#: model:ir.model,name:construction.model_product_arrival
+msgid "Product Arrival"
+msgstr "Приход продукта"
+
+#. module: construction
+#: model:ir.model.fields,field_description:construction.field_product_arrival__quantity
+msgid "Arrival Quantity"
+msgstr "Количество Продукта"
+
+#. module: construction
+#: model:ir.model.fields,field_description:construction.field_product_arrival__product_id
+msgid "Product Name"
+msgstr "Название Продукта"
+
+#. module: construction
+#: model:ir.model.fields,field_description:construction.field_product_arrival__location_id
+msgid "Sender"
+msgstr "Отправитель"
+
+#. module: construction
+#: model:ir.model.fields,field_description:construction.field_product_arrival__report_id
+msgid "Report Number"
+msgstr "Номер Отчета"
+
+#. module: construction
+#: model:ir.model,name:construction.construction_report_stage
+msgid "Report Stages"
+msgstr "Статус Отчета
+
+
+#. module: construction
+#: model:ir.model.fields.selection,name:construction.selection__construction_report__weather_conditions__snow
+msgid "Snow"
+msgstr "Снег"
+
+
+
+#. module: construction
+#: model:ir.model.fields.selection,name:construction.selection__construction_report_stage__report_state__new
+msgid "New"
+msgstr "Новый"
+
+#. module: construction
+#: model:ir.model.fields.selection,name:construction.selection__construction_report_stage__report_state__review
+msgid "Review"
+msgstr "На Согласовании"
+
+#. module: construction
+#: model:ir.model.fields.selection,name:construction.selection__construction_report_stage__report_state__approved
+msgid "Approved"
+msgstr "Согласован"
+
+#. module: construction
+#: model:ir.model,name:construction.model_construction_category
+msgid "Categories for Works"
+msgstr "Категории Работ"
+
+#. module: construction
+#: model:ir.model.fields,field_description:construction.field_construction_category__work_ids
+msgid "Works"
+msgstr "Работы"
+
+#. module: construction
+#: model:ir.model.fields,field_description:construction.field_construction_category__name
+msgid "Category"
+msgstr "Категория"
+
+#. module: construction
+#: model:ir.actions.act_window,name:construction.action_construction_report
+msgid "Construction Reports"
+msgstr "Отчеты по строительству"
+
+#. module: construction
+#: model:ir.ui.menu,name:construction.menu_construction
+msgid "Construction"
+msgstr "Cтроительство"
+
+#. module: construction
+#: model:ir.ui.menu,name:construction.menu_construction_statistics
+msgid "Statistics"
+msgstr "Статистика"
+
+#. module: construction
+#: model:ir.ui.menu,name:construction.menu_construction_report
+msgid "Report"
+msgstr "Отчет"
+
+#. module: construction
+#: model:ir.ui.menu,name:construction.menu_construction_category
+msgid "Categories Of Work"
+msgstr "Категории Работ"
+
+#. module: construction
+#: model:ir.ui.menu,name:construction.menu_construction_object
+msgid "Objects Construction"
+msgstr "Объекты Строительства"
+
+
+#. module: construction
+#: model:ir.ui.view,view_type:form,view_id:construction.view_construction_report_form
+msgid "Send For Approval"
+msgstr "Отправить на согласование"

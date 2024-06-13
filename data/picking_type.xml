@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="construction_write_off" model="stock.picking.type">
+        <field name="name">Construction write off</field>
+        <field name="code">construction</field>
+        <field name="sequence_code">construction</field>
+    </record>
+
+</odoo>

@@ -4,3 +4,7 @@ access_work,construction.work_default,model_construction_report_lines,,1,1,1,1
 acces_stage,construction.stage_default,model_construction_report_stage,,1,1,1,1
 acces_work_list,construction.work_list_default,model_construction_work,,1,1,1,1
 acces_category,construction.category_default,model_construction_category,,1,1,1,1
+acces_object,construction.object_defualt,model_construction_object,,1,1,1,1
+acces_product_arrival,construction.product_arrival_defualt,model_product_arrival,,1,1,1,1
+acces_product_consumption,construction.product_consumption_defualt,model_product_consumption,,1,1,1,1
+acces_product_consumption,construction.product_consumption_defualt,model_product_consumption,,1,1,1,1
