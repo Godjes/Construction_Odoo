@@ -32,7 +32,7 @@
 
     </record>
     
-    <menuitem id="menu_construction_works" name="Работы" parent="menu_construction" action="view_construction_works" sequence="25" />
+    <menuitem id="menu_construction_works" name="Works" parent="menu_construction" action="view_construction_works" sequence="25" />
 
 
 </odoo>

@@ -236,7 +236,7 @@ class ConstructionsWork(models.Model):
         'Work Name',
         required=True
     )
-    description = fields.Text('Описание работы')
+    description = fields.Text('Work Description')
     category_id = fields.Many2one(
         'construction.category',
         string='Work Category',
