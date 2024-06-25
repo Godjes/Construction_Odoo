@@ -158,17 +158,17 @@ msgstr "Отображаемое имя"
 #. module: construction
 #: model:ir.model.fields.selection,name:construction.selection__construction_report__weather_conditions__fog
 msgid "Fog"
-msgstr "Туиан"
+msgstr "Туман"
 
 #. module: construction
 #: model:ir.model.fields,field_description:construction.field_construction_report_stage__fold
 msgid "Fold"
-msgstr ""
+msgstr "Еще"
 
 #. module: construction
 #: model:ir.model.fields,field_description:construction.field_construction_report__message_follower_ids
 msgid "Followers"
-msgstr ""
+msgstr "Подписчики"
 
 #. module: construction
 #: model:ir.model.fields,field_description:construction.field_construction_report__message_partner_ids
@@ -277,7 +277,7 @@ msgstr "Тип места хранения"
 #. module: construction
 #: model:ir.model.fields,field_description:construction.field_construction_report__message_main_attachment_id
 msgid "Main Attachment"
-msgstr ""
+msgstr "Основное приложение"
 
 #. module: construction
 #: model:ir.model.fields,field_description:construction.field_construction_report__message_has_error
@@ -302,12 +302,12 @@ msgstr "Новый"
 #. module: construction
 #: model:ir.model.fields,field_description:construction.field_construction_report__message_needaction_counter
 msgid "Number of Actions"
-msgstr ""
+msgstr "Количество Действий"
 
 #. module: construction
 #: model:ir.model.fields,field_description:construction.field_construction_report__message_has_error_counter
 msgid "Number of errors"
-msgstr "Количество действий"
+msgstr "Количество Ошибок"
 
 #. module: construction
 #: model:ir.model.fields,help:construction.field_construction_report__message_needaction_counter
@@ -423,7 +423,7 @@ msgstr "На Согласовании"
 #. module: construction
 #: model:ir.model.fields,field_description:construction.field_construction_report__message_has_sms_error
 msgid "SMS Delivery error"
-msgstr ""
+msgstr "Ошибка доставки СМС"
 
 #. module: construction
 #: model_terms:ir.ui.view,arch_db:construction.view_construction_report_form
@@ -438,12 +438,12 @@ msgstr "Отправитель"
 #. module: construction
 #: model:ir.model.fields,field_description:construction.field_construction_report_stage__sequence
 msgid "Sequence"
-msgstr ""
+msgstr "Последовательность"
 
 #. module: construction
 #: model_terms:ir.ui.view,arch_db:construction.construction_report_pivot_search
 msgid "Show all records which has next action date is before today"
-msgstr ""
+msgstr "Показать все записи, у которых дата следующего действия раньше сегодняшнего дня"
 
 #. module: construction
 #: model:ir.model.fields.selection,name:construction.selection__construction_report__weather_conditions__snow
@@ -592,3 +592,31 @@ msgstr "Расход"
 #: model:ir.actions.act_window,name:construction.action_construction_report_pivot
 msgid "Statistic Of Work"
 msgstr "Статистика работ"
+
+#. module: construction
+#. odoo-python
+#: code:addons/construction/models/construction_report.py:0
+#, python-format
+msgid "The start time should be shorter end time"
+msgstr "Время начала работы должно быть меньше времени окончания работы"
+
+#. module: construction
+#. odoo-python
+#: code:addons/construction/models/construction_report.py:0
+#, python-format
+msgid "Time from and time should be basically from 0.0 to 24.0" 
+msgstr "Время от и время до должны быть в диапазоне от 0.0 до 24.0"
+
+#. module: construction
+#. odoo-python
+#: code:addons/construction/models/construction_report.py:0
+#, python-format
+msgid "Crossing time slots is not allowed"
+msgstr "Пересечение временных интервалов не допускается"
+
+#. module: construction
+#. odoo-python
+#: code:addons/construction/models/construction_report.py:0
+#, python-format
+msgid "The total operating time must be 24 hours"
+msgstr "Суммарное время работы должно быть 24 часа"

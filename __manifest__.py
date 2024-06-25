@@ -5,7 +5,7 @@
     'author': "Rydlab",
     'website': "https://rydlab.ru/",
     'category': 'Construction',
-    'version': '16.0.0.2.1',
+    'version': '16.0.0.3.1',
     'depends': ['base', 'mail', 'contacts', 'product', 'stock', 'fleet'],
     'data': [
         #'security/groups.xml',
