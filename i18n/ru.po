@@ -1,0 +1,622 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* construction
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0-20240603\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-06-14 07:14+0000\n"
+"PO-Revision-Date: 2024-06-14 07:14+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: construction
+#: model:ir.model.fields,help:construction.field_stock_location__usage
+msgid ""
+"* Vendor Location: Virtual location representing the source location for products coming from your vendors\n"
+"* View: Virtual location used to create a hierarchical structures for your warehouse, aggregating its child locations ; can't directly contain products\n"
+"* Internal Location: Physical locations inside your own warehouses,\n"
+"* Customer Location: Virtual location representing the destination location for products sent to your customers\n"
+"* Inventory Loss: Virtual location serving as counterpart for inventory operations used to correct stock levels (Physical inventories)\n"
+"* Production: Virtual counterpart location for production operations: this location consumes the components and produces finished products\n"
+"* Transit Location: Counterpart location that should be used in inter-company or inter-warehouses operations"
+msgstr ""
+"* Место хранения поставщика: виртуальное местоположение, представляющее исходное местоположение для продуктов, поступающих от ваших поставщиков.\n"
+"* Виртуальное место хранения: виртуальное местоположение, используемое для создания иерархических структур для вашего склада, объединяя его дочерние местоположения; не может напрямую содержать продукты\n"
+"* Внутреннее место хранения: физические местоположение внутри ваших собственных складов\n"
+"* Место хранения клиента: виртуальное местоположение, представляющее конечное местоположение для продуктов, отправленных вашим клиентам\n"
+"* Потери: виртуальное местоположение, служащее аналогом для операций с запасами, используемых для корректировки уровней запасов (Физические запасы)\n"
+"* Производство: виртуальное место-аналог для производственных операций: это местоположение потребляет сырье и производит готовую продукцию\n"
+"* Транзитное место хранения: местоположение-контрагент, которое должно использоваться в межфирменных или межскладских операциях"
+
+#. module: construction
+#: model:ir.model.fields,field_description:construction.field_construction_report__message_needaction
+msgid "Action Needed"
+msgstr "Действия Требуются"
+
+#. module: construction
+#: model:ir.model.fields.selection,name:construction.selection__construction_report_stage__report_state__approved
+#: model_terms:ir.ui.view,arch_db:construction.view_construction_report_form
+msgid "Approved"
+msgstr "Согласован"
+
+#. module: construction
+#: model:ir.model.fields,field_description:construction.field_product_arrival__quantity
+msgid "Arrival Quantity"
+msgstr "Количество Продукта"
+
+#. module: construction
+#: model:ir.model.fields,field_description:construction.field_construction_report__message_attachment_count
+msgid "Attachment Count"
+msgstr "Количество вложений"
+
+#. module: construction
+#: model:ir.actions.act_window,name:construction.action_construction_work_category
+#: model:ir.ui.menu,name:construction.menu_construction_category
+msgid "Categories Of Work"
+msgstr "Категория Работ"
+
+#. module: construction
+#: model:ir.model,name:construction.model_construction_category
+msgid "Categories for Works"
+msgstr "Категории Работ"
+
+#. module: construction
+#: model:ir.model.fields,field_description:construction.field_construction_category__name
+#: model_terms:ir.ui.view,arch_db:construction.search_category
+msgid "Category"
+msgstr "Категория"
+
+#. module: construction
+#: model:ir.model.fields.selection,name:construction.selection__stock_location__usage__construction
+#: model:ir.model.fields.selection,name:construction.selection__stock_picking_type__code__construction
+#: model:ir.ui.menu,name:construction.menu_construction
+msgid "Construction"
+msgstr "Cтроительство"
+
+#. module: construction
+#: model:ir.model.fields,field_description:construction.field_stock_move__construction_consumption_id
+msgid "Construction Consumption"
+msgstr "Расход на строительство"
+
+#. module: construction
+#: model:ir.actions.act_window,name:construction.construction_object_action
+msgid "Construction Object"
+msgstr "Объект Строительства"
+
+#. module: construction
+#: model:ir.actions.act_window,name:construction.action_construction_report
+msgid "Construction Reports"
+msgstr "Отчеты по строительству"
+
+#. module: construction
+#: model:ir.actions.act_window,name:construction.view_construction_works
+msgid "Construction Works"
+msgstr "Строительные Работы"
+
+#. module: construction
+#: model:stock.picking.type,name:construction.construction_write_off
+msgid "Construction write off"
+msgstr "Списания на строительство"
+
+#. module: construction
+#: model:ir.model,name:construction.model_product_consumption
+msgid "Consumption Product"
+msgstr "Расход Продукта"
+
+#. module: construction
+#: model:ir.model.fields,field_description:construction.field_product_consumption__quantity
+msgid "Consumption Quantity"
+msgstr "Количество Продукта"
+
+#. module: construction
+#: model:ir.model.fields,field_description:construction.field_construction_category__create_uid
+#: model:ir.model.fields,field_description:construction.field_construction_object__create_uid
+#: model:ir.model.fields,field_description:construction.field_construction_report__create_uid
+#: model:ir.model.fields,field_description:construction.field_construction_report_lines__create_uid
+#: model:ir.model.fields,field_description:construction.field_construction_report_stage__create_uid
+#: model:ir.model.fields,field_description:construction.field_construction_work__create_uid
+#: model:ir.model.fields,field_description:construction.field_product_arrival__create_uid
+#: model:ir.model.fields,field_description:construction.field_product_consumption__create_uid
+msgid "Created by"
+msgstr "Создано"
+
+#. module: construction
+#: model:ir.model.fields,field_description:construction.field_construction_category__create_date
+#: model:ir.model.fields,field_description:construction.field_construction_object__create_date
+#: model:ir.model.fields,field_description:construction.field_construction_report__create_date
+#: model:ir.model.fields,field_description:construction.field_construction_report_lines__create_date
+#: model:ir.model.fields,field_description:construction.field_construction_report_stage__create_date
+#: model:ir.model.fields,field_description:construction.field_construction_work__create_date
+#: model:ir.model.fields,field_description:construction.field_product_arrival__create_date
+#: model:ir.model.fields,field_description:construction.field_product_consumption__create_date
+msgid "Created on"
+msgstr "Созданный на"
+
+#. module: construction
+#: model:ir.model.fields,field_description:construction.field_construction_report__customer
+msgid "Customer"
+msgstr "Заказчик"
+
+#. module: construction
+#: model:ir.model.fields,field_description:construction.field_construction_category__display_name
+#: model:ir.model.fields,field_description:construction.field_construction_object__display_name
+#: model:ir.model.fields,field_description:construction.field_construction_report__display_name
+#: model:ir.model.fields,field_description:construction.field_construction_report_lines__display_name
+#: model:ir.model.fields,field_description:construction.field_construction_report_stage__display_name
+#: model:ir.model.fields,field_description:construction.field_construction_work__display_name
+#: model:ir.model.fields,field_description:construction.field_product_arrival__display_name
+#: model:ir.model.fields,field_description:construction.field_product_consumption__display_name
+msgid "Display Name"
+msgstr "Отображаемое имя"
+
+#. module: construction
+#: model:ir.model.fields.selection,name:construction.selection__construction_report__weather_conditions__fog
+msgid "Fog"
+msgstr "Туман"
+
+#. module: construction
+#: model:ir.model.fields,field_description:construction.field_construction_report_stage__fold
+msgid "Fold"
+msgstr "Еще"
+
+#. module: construction
+#: model:ir.model.fields,field_description:construction.field_construction_report__message_follower_ids
+msgid "Followers"
+msgstr "Подписчики"
+
+#. module: construction
+#: model:ir.model.fields,field_description:construction.field_construction_report__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Подписчики (Партнеры)"
+
+#. module: construction
+#: model_terms:ir.ui.view,arch_db:construction.construction_report_pivot_search
+msgid "Future Activities"
+msgstr "Будущая деятельность"
+
+#. module: construction
+#: model_terms:ir.ui.view,arch_db:construction.search_category
+msgid "Group By"
+msgstr "Группировка"
+
+#. module: construction
+#: model:ir.model.fields,field_description:construction.field_construction_report__has_message
+msgid "Has Message"
+msgstr "Имеет сообщение"
+
+#. module: construction
+#: model:ir.model.fields,field_description:construction.field_construction_category__id
+#: model:ir.model.fields,field_description:construction.field_construction_object__id
+#: model:ir.model.fields,field_description:construction.field_construction_report__id
+#: model:ir.model.fields,field_description:construction.field_construction_report_lines__id
+#: model:ir.model.fields,field_description:construction.field_construction_report_stage__id
+#: model:ir.model.fields,field_description:construction.field_construction_work__id
+#: model:ir.model.fields,field_description:construction.field_product_arrival__id
+#: model:ir.model.fields,field_description:construction.field_product_consumption__id
+msgid "ID"
+msgstr "ID"
+
+#. module: construction
+#: model:ir.model.fields,help:construction.field_construction_report__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "Если этот флажок установлен, новые сообщения требуют вашего внимания."
+
+#. module: construction
+#: model:ir.model.fields,help:construction.field_construction_report__message_has_error
+#: model:ir.model.fields,help:construction.field_construction_report__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Если этот флажок установлен, в некоторых сообщениях обнаруживается ошибка доставки."
+
+#. module: construction
+#: model:ir.model,name:construction.model_stock_location
+msgid "Inventory Locations"
+msgstr "Места запасов"
+
+#. module: construction
+#: model:ir.model.fields,field_description:construction.field_construction_report__message_is_follower
+msgid "Is Follower"
+msgstr "Подписчик"
+
+#. module: construction
+#: model:ir.model.fields,field_description:construction.field_construction_category____last_update
+#: model:ir.model.fields,field_description:construction.field_construction_object____last_update
+#: model:ir.model.fields,field_description:construction.field_construction_report____last_update
+#: model:ir.model.fields,field_description:construction.field_construction_report_lines____last_update
+#: model:ir.model.fields,field_description:construction.field_construction_report_stage____last_update
+#: model:ir.model.fields,field_description:construction.field_construction_work____last_update
+#: model:ir.model.fields,field_description:construction.field_product_arrival____last_update
+#: model:ir.model.fields,field_description:construction.field_product_consumption____last_update
+msgid "Last Modified on"
+msgstr "Последние Обновление"
+
+#. module: construction
+#: model:ir.model.fields,field_description:construction.field_construction_category__write_uid
+#: model:ir.model.fields,field_description:construction.field_construction_object__write_uid
+#: model:ir.model.fields,field_description:construction.field_construction_report__write_uid
+#: model:ir.model.fields,field_description:construction.field_construction_report_lines__write_uid
+#: model:ir.model.fields,field_description:construction.field_construction_report_stage__write_uid
+#: model:ir.model.fields,field_description:construction.field_construction_work__write_uid
+#: model:ir.model.fields,field_description:construction.field_product_arrival__write_uid
+#: model:ir.model.fields,field_description:construction.field_product_consumption__write_uid
+msgid "Last Updated by"
+msgstr "Последнее обновление от"
+
+#. module: construction
+#: model:ir.model.fields,field_description:construction.field_construction_category__write_date
+#: model:ir.model.fields,field_description:construction.field_construction_object__write_date
+#: model:ir.model.fields,field_description:construction.field_construction_report__write_date
+#: model:ir.model.fields,field_description:construction.field_construction_report_lines__write_date
+#: model:ir.model.fields,field_description:construction.field_construction_report_stage__write_date
+#: model:ir.model.fields,field_description:construction.field_construction_work__write_date
+#: model:ir.model.fields,field_description:construction.field_product_arrival__write_date
+#: model:ir.model.fields,field_description:construction.field_product_consumption__write_date
+msgid "Last Updated on"
+msgstr "Последнее обновление"
+
+#. module: construction
+#: model_terms:ir.ui.view,arch_db:construction.construction_report_pivot_search
+msgid "Late Activities"
+msgstr "Поздние действия"
+
+#. module: construction
+#: model:ir.model,name:construction.model_construction_object
+msgid "List of objects"
+msgstr "Список обЪектов"
+
+#. module: construction
+#: model:ir.model.fields,field_description:construction.field_stock_location__usage
+msgid "Location Type"
+msgstr "Тип места хранения"
+
+#. module: construction
+#: model:ir.model.fields,field_description:construction.field_construction_report__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "Основное приложение"
+
+#. module: construction
+#: model:ir.model.fields,field_description:construction.field_construction_report__message_has_error
+msgid "Message Delivery error"
+msgstr "Ошибка доставки сообщения"
+
+#. module: construction
+#: model:ir.model.fields,field_description:construction.field_construction_report__message_ids
+msgid "Messages"
+msgstr "Сообщения"
+
+#. module: construction
+#: model:ir.model.fields,field_description:construction.field_construction_report_stage__name
+msgid "Name"
+msgstr "Название"
+
+#. module: construction
+#: model:ir.model.fields.selection,name:construction.selection__construction_report_stage__report_state__new
+msgid "New"
+msgstr "Новый"
+
+#. module: construction
+#: model:ir.model.fields,field_description:construction.field_construction_report__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Количество Действий"
+
+#. module: construction
+#: model:ir.model.fields,field_description:construction.field_construction_report__message_has_error_counter
+msgid "Number of errors"
+msgstr "Количество Ошибок"
+
+#. module: construction
+#: model:ir.model.fields,help:construction.field_construction_report__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr "Количество сообщений, требующих принятия мер"
+
+#. module: construction
+#: model:ir.model.fields,help:construction.field_construction_report__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Количество сообщений с ошибкой доставки"
+
+#. module: construction
+#: model:ir.model.fields,field_description:construction.field_construction_report__construction_object_ids
+msgid "Object Of Construction"
+msgstr "Объект Строительства"
+
+#. module: construction
+#: model:ir.ui.menu,name:construction.menu_construction_object
+msgid "Objects Construction"
+msgstr "Объекты Строительства"
+
+#. module: construction
+#: model:ir.model.fields.selection,name:construction.selection__construction_report__weather_conditions__partly_cloudy
+msgid "Partly cloudy"
+msgstr "Облачно"
+
+#. module: construction
+#: model:ir.model,name:construction.model_stock_picking_type
+msgid "Picking Type"
+msgstr "Тип комплектования"
+
+#. module: construction
+#: model:ir.model.fields,field_description:construction.field_construction_report__product_arrival_ids
+msgid "Product  Arrival"
+msgstr "Продукта Прибыло"
+
+#. module: construction
+#: model:ir.model.fields,field_description:construction.field_construction_report__product_consumption_ids
+msgid "Product  Consumption"
+msgstr "Продукта Убыло"
+
+#. module: construction
+#: model:ir.model,name:construction.model_product_arrival
+msgid "Product Arrival"
+msgstr "Приход продукта"
+
+#. module: construction
+#: model:ir.model.fields,field_description:construction.field_product_arrival__product_id
+#: model:ir.model.fields,field_description:construction.field_product_consumption__product_id
+msgid "Product Name"
+msgstr "Название Продукта"
+
+#. module: construction
+#: model:ir.model.fields,field_description:construction.field_product_consumption__write_off
+msgid "Product Written Off"
+msgstr "Продукта списано"
+
+#. module: construction
+#: model:ir.model.fields.selection,name:construction.selection__construction_report__weather_conditions__rain
+msgid "Rain"
+msgstr "Дождь"
+
+#. module: construction
+#: model:ir.model.fields,field_description:construction.field_construction_report_lines__report_id
+#: model:ir.ui.menu,name:construction.menu_construction_report
+msgid "Report"
+msgstr "Отчет"
+
+#. module: construction
+#: model:ir.model.fields,field_description:construction.field_construction_report__date
+#: model:ir.model.fields,field_description:construction.field_construction_report_lines__date
+msgid "Report Date"
+msgstr "Дата отчета"
+
+#. module: construction
+#: model:ir.model,name:construction.model_construction_report_lines
+msgid "Report Lines"
+msgstr "Строки отчета"
+
+#. module: construction
+#: model:ir.model.fields,field_description:construction.field_product_arrival__report_id
+#: model:ir.model.fields,field_description:construction.field_product_consumption__report_id
+#: model:ir.model.fields,field_description:construction.field_stock_picking__report_id
+msgid "Report Number"
+msgstr "Номер Отчета"
+
+#. module: construction
+#: model:ir.model,name:construction.model_construction_report_stage
+msgid "Report Stages"
+msgstr "Статус Отчета"
+
+#. module: construction
+#: model:ir.model.fields,field_description:construction.field_product_arrival__product_state
+#: model:ir.model.fields,field_description:construction.field_product_consumption__product_state
+msgid "Report Status"
+msgstr "Статус Отчета"
+
+#. module: construction
+#: model:ir.model,name:construction.model_construction_report
+msgid "Report on Work Done"
+msgstr "Отчет о проделанной работе"
+
+#. module: construction
+#: model:ir.model.fields,field_description:construction.field_construction_report__responsible_user_id
+msgid "Responsible User"
+msgstr "Ответственный"
+
+#. module: construction
+#: model:ir.model.fields.selection,name:construction.selection__construction_report_stage__report_state__review
+msgid "Review"
+msgstr "На Согласовании"
+
+#. module: construction
+#: model:ir.model.fields,field_description:construction.field_construction_report__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "Ошибка доставки СМС"
+
+#. module: construction
+#: model_terms:ir.ui.view,arch_db:construction.view_construction_report_form
+msgid "Send For Approval"
+msgstr "Отправить На Согласование"
+
+#. module: construction
+#: model:ir.model.fields,field_description:construction.field_product_arrival__location_id
+msgid "Sender"
+msgstr "Отправитель"
+
+#. module: construction
+#: model:ir.model.fields,field_description:construction.field_construction_report_stage__sequence
+msgid "Sequence"
+msgstr "Последовательность"
+
+#. module: construction
+#: model_terms:ir.ui.view,arch_db:construction.construction_report_pivot_search
+msgid "Show all records which has next action date is before today"
+msgstr "Показать все записи, у которых дата следующего действия раньше сегодняшнего дня"
+
+#. module: construction
+#: model:ir.model.fields.selection,name:construction.selection__construction_report__weather_conditions__snow
+msgid "Snow"
+msgstr "Снег"
+
+#. module: construction
+#: model:ir.model.fields,field_description:construction.field_construction_report__stage_id
+msgid "Stage"
+msgstr "Статус"
+
+#. module: construction
+#: model:ir.model.fields,field_description:construction.field_construction_report_stage__report_state
+msgid "State"
+msgstr "Статус"
+
+#. module: construction
+#: model:ir.ui.menu,name:construction.menu_construction_statistics
+msgid "Statistics"
+msgstr "Статистика"
+
+#. module: construction
+#: model:ir.model,name:construction.model_stock_move
+msgid "Stock Move"
+msgstr "Перемещение на складе"
+
+#. module: construction
+#: model:ir.model.fields.selection,name:construction.selection__construction_report__weather_conditions__sunny
+msgid "Sunny"
+msgstr "Солнечно"
+
+#. module: construction
+#: model:ir.model.fields,field_description:construction.field_construction_report_lines__time_from
+msgid "Time From"
+msgstr "Время от"
+
+#. module: construction
+#: model:ir.model.fields,field_description:construction.field_construction_report_lines__time_to
+msgid "Time To"
+msgstr "Время до"
+
+#. module: construction
+#: model_terms:ir.ui.view,arch_db:construction.construction_report_pivot_search
+msgid "Today Activities"
+msgstr "Действия Сегодня"
+
+#. module: construction
+#: model:ir.model.fields,field_description:construction.field_construction_report_lines__time_total
+msgid "Total Hours"
+msgstr "Итого часов"
+
+#. module: construction
+#: model:ir.model,name:construction.model_stock_picking
+msgid "Transfer"
+msgstr "Перемещение"
+
+#. module: construction
+#: model:ir.model.fields,field_description:construction.field_stock_picking__transport
+msgid "Transport Vehicle"
+msgstr "Транспортное средство"
+
+#. module: construction
+#: model:ir.model.fields,field_description:construction.field_stock_picking_type__code
+msgid "Type of Operation"
+msgstr "Тип Операции"
+
+#. module: construction
+#: model:ir.model.fields,field_description:construction.field_construction_report__weather_conditions
+msgid "Weather Conditions"
+msgstr "Погодные условия"
+
+#. module: construction
+#: model:ir.model.fields,field_description:construction.field_construction_report__website_message_ids
+msgid "Website Messages"
+msgstr "Сообщения на веб-сайте"
+
+#. module: construction
+#: model:ir.model.fields,help:construction.field_construction_report__website_message_ids
+msgid "Website communication history"
+msgstr "История общения с веб-сайтом"
+
+#. module: construction
+#: model:ir.model.fields,field_description:construction.field_construction_report_lines__work_category_id
+#: model:ir.model.fields,field_description:construction.field_construction_work__category_id
+msgid "Work Category"
+msgstr "Категория Работ"
+
+#. module: construction
+#: model:ir.model.fields,field_description:construction.field_construction_report__work_line_ids
+msgid "Work Lines"
+msgstr "Количество Записей"
+
+#. module: construction
+#: model:ir.model,name:construction.model_construction_work
+msgid "Work List"
+msgstr "Список Работ"
+
+#. module: construction
+#: model:ir.model.fields,field_description:construction.field_construction_report_lines__work_id
+#: model:ir.model.fields,field_description:construction.field_construction_work__name
+msgid "Work Name"
+msgstr "Название работы"
+
+#. module: construction
+#: model:ir.model.fields,field_description:construction.field_construction_category__work_ids
+#: model_terms:ir.ui.view,arch_db:construction.view_construction_work_category_form
+msgid "Works"
+msgstr "Работы"
+
+#. module: construction
+#: model:ir.model.fields,field_description:construction.field_construction_category__works_count
+msgid "Works Count"
+msgstr "Количество Работ"
+
+#. module: construction
+#: model:ir.model.fields,field_description:construction.field_construction_object__name
+msgid "object name"
+msgstr "Название объекта"
+
+#. module: construction
+#: model_terms:ir.ui.view,arch_db:construction.construction_report_pivot_search
+msgid "Date"
+msgstr "Дата"
+
+#. module: construction
+#: model:ir.model.fields,field_description:construction.field_construction_work__description
+msgid "Описание работы"
+msgstr "Work Description"
+
+#. module: construction
+#: model_terms:ir.ui.view,arch_db:construction.view_construction_report_form
+msgid "Arrival"
+msgstr "Приход"
+
+#. module: construction
+#: model:ir.ui.menu,name:construction.menu_construction_works
+msgid "Works"
+msgstr "Работы"
+
+#. module: construction
+#: model_terms:ir.ui.view,arch_db:construction.view_construction_report_form
+msgid "Consumption"
+msgstr "Расход"
+
+#. module: construction
+#: model:ir.actions.act_window,name:construction.action_construction_report_pivot
+msgid "Statistic Of Work"
+msgstr "Статистика работ"
+
+#. module: construction
+#. odoo-python
+#: code:addons/construction/models/construction_report.py:0
+#, python-format
+msgid "The start time should be shorter end time"
+msgstr "Время начала работы должно быть меньше времени окончания работы"
+
+#. module: construction
+#. odoo-python
+#: code:addons/construction/models/construction_report.py:0
+#, python-format
+msgid "Time from and time should be basically from 0.0 to 24.0" 
+msgstr "Время от и время до должны быть в диапазоне от 0.0 до 24.0"
+
+#. module: construction
+#. odoo-python
+#: code:addons/construction/models/construction_report.py:0
+#, python-format
+msgid "Crossing time slots is not allowed"
+msgstr "Пересечение временных интервалов не допускается"
+
+#. module: construction
+#. odoo-python
+#: code:addons/construction/models/construction_report.py:0
+#, python-format
+msgid "The total operating time must be 24 hours"
+msgstr "Суммарное время работы должно быть 24 часа"

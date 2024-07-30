@@ -6,8 +6,8 @@
             <form>
                 <header>
                     <field name="stage_id" widget="statusbar" options="{'clickable': '1', 'fold_field': 'fold'}"/>
-                    <button type="object" name="action_submit_for_approval" string="Отправить на согласование" class="btn-primary"/>
-                    <button type="object" name="action_approve_report" string="Согласовать" class="btn-primary"/>
+                    <button type="object" name="action_submit_for_approval" string="Send For Approval" class="btn-primary"/>
+                    <button type="object" name="action_after_aprove" string="Approved" class="btn-primary"/>
                 </header>
                 <sheet>
                     <group>
@@ -15,6 +15,7 @@
                         <field name="responsible_user_id"/>
                         <field name="weather_conditions"/>
                         <field name="customer"/>
+                        <field name="construction_object_ids"/>
                     </group>
                     <field name="work_line_ids" mode="tree">
                         <tree editable="bottom">
@@ -24,6 +25,44 @@
                             <field name="work_id"/>
                         </tree>
                     </field>
+                    <notebook>
+                        <page string="Arrival" name='Product Arrival'>
+                            <field name="product_arrival_ids">
+                                <tree editable="bottom">
+                                    <field name="product_state" invisible="1"/>
+                                    <field name="product_id" options="{'no_create': True}" attrs="{'readonly': [('product_state', '=', 'approved')]}"/>
+                                    <field name="quantity" attrs="{'readonly': [('product_state', '=', 'approved')]}" />
+                                    <field name="location_id" options="{'no_create': True}" attrs="{'readonly': [('product_state', '=', 'approved')]}"/>
+                                </tree>
+                                <form>
+                                    <group>
+                                        <field name="product_state" invisible="1"/>
+                                        <field name="product_id" options="{'no_create': True}" attrs="{'readonly': [('product_state', '=', 'approved')]}"/>
+                                        <field name="quantity" attrs="{'readonly': [('product_state', '=', 'approved')]}" />
+                                        <field name="location_id" options="{'no_create': True}" attrs="{'readonly': [('product_state', '=', 'approved')]}"/>
+                                    </group>
+                                </form>
+                            </field>
+                        </page>
+                        <page string="Consumption" name='Расход продукта'>
+                            <field name="product_consumption_ids">
+                                <tree editable="bottom">
+                                    <field name="product_state" invisible="1" attrs="{'readonly': [('product_state', '=', 'approved')]}"/>
+                                    <field name="product_id" options="{'no_create': True}" attrs="{'readonly': [('product_state', '=', 'approved')]}"/>
+                                    <field name="quantity" attrs="{'readonly': [('product_state', '=', 'approved')]}"/>
+                                    <field name="write_off"/>
+                                </tree>
+                                <form>
+                                    <group>
+                                         <field name="product_state" invisible="1" attrs="{'readonly': [('product_state', '=', 'approved')]}"/>
+                                        <field name="product_id" options="{'no_create': True}" attrs="{'readonly': [('product_state', '=', 'approved')]}"/>
+                                        <field name="quantity" attrs="{'readonly': [('product_state', '=', 'approved')]}"/>
+                                        <field name="write_off"/>
+                                    </group>
+                                </form>
+                            </field>
+                        </page>
+                    </notebook>
                 </sheet>
                 <div class="oe_chatter">
                     <field name="message_follower_ids" widget="mail_followers"/>
@@ -61,7 +100,7 @@
     
 
     <record id="action_construction_report_pivot" model="ir.actions.act_window">
-        <field name="name">Статистика работ</field>
+        <field name="name">Statistic Of Work</field>
         <field name="res_model">construction.report.lines</field>
         <field name="view_mode">pivot</field>
         <field name="view_id" ref="view_construction_report_pivot"/>
@@ -78,7 +117,7 @@
         <field name="model">construction.report.lines</field>
         <field name="arch" type="xml">
             <search>
-                <filter string="Дата" name="Дата" date="date"/>
+                <filter string="Date" name="Date" date="date"/>
                     <separator />
                     <filter invisible="1" string="Late Activities" name="activities_overdue"
                         domain="[('date', '&lt;', context_today().strftime('%Y-%m-%d'))]"
@@ -95,7 +134,7 @@
 
 
     <menuitem id="menu_construction" name="Construction" />
-    <menuitem id="menu_construction_statistics" name="Статистика работ" parent="menu_construction" action="action_construction_report_pivot" sequence="30" />  
-    <menuitem id="menu_construction_report" name="Отчеты" parent="menu_construction" action="action_construction_report" sequence="10" />
+    <menuitem id="menu_construction_statistics" name="Statistics" parent="menu_construction" action="action_construction_report_pivot" sequence="30" />  
+    <menuitem id="menu_construction_report" name="Report" parent="menu_construction" action="action_construction_report" sequence="10" />
       
 </odoo>
