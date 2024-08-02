@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<templates>
+    <t t-name="owl.One2ManyAggregatorField" t-inherit="web.X2ManyField" t-inherit-mode="primary">
+        <xpath expr="//ListRenderer" position="replace">
+            <One2ManyField t-if="viewMode === 'list'" t-props="rendererProps" />
+        </xpath>
+    </t>
+</templates>
