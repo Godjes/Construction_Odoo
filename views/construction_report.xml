@@ -17,7 +17,7 @@
                         <field name="customer"/>
                         <field name="construction_object_ids"/>
                     </group>
-                    <field name="work_line_ids" mode="tree">
+                    <field name="work_line_ids" mode="tree" widget="one2manyAggregator">
                         <tree editable="bottom">
                             <field name="time_from" widget="float_time"/>
                             <field name="time_to" widget="float_time"/>
@@ -27,19 +27,19 @@
                     </field>
                     <notebook>
                         <page string="Arrival" name='Product Arrival'>
-                            <field name="product_arrival_ids">
+                            <field name="product_arrival_ids" widget="one2manyAggregator" >
                                 <tree editable="bottom">
                                     <field name="product_state" invisible="1"/>
                                     <field name="product_id" options="{'no_create': True}" attrs="{'readonly': [('product_state', '=', 'approved')]}"/>
                                     <field name="quantity" attrs="{'readonly': [('product_state', '=', 'approved')]}" />
                                     <field name="location_id" options="{'no_create': True}" attrs="{'readonly': [('product_state', '=', 'approved')]}"/>
                                 </tree>
-                                <form>
+                                <form >
                                     <group>
                                         <field name="product_state" invisible="1"/>
                                         <field name="product_id" options="{'no_create': True}" attrs="{'readonly': [('product_state', '=', 'approved')]}"/>
                                         <field name="quantity" attrs="{'readonly': [('product_state', '=', 'approved')]}" />
-                                        <field name="location_id" options="{'no_create': True}" attrs="{'readonly': [('product_state', '=', 'approved')]}"/>
+                                        <field name="location_id" options="{'no_create': True}" attrs="{'readonly': [('product_state', '=', 'approved')]}"/>  
                                     </group>
                                 </form>
                             </field>
@@ -82,6 +82,7 @@
                 <field name="work_line_ids"/>
                 <field name="weather_conditions"/>
                 <field name="customer"/>
+                <field name="time_total_hours" widget="float_time" sum="time_total_hours"/>
             </tree>
         </field>
     </record>

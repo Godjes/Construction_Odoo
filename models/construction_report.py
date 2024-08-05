@@ -24,10 +24,16 @@ class ConstructionReport(models.Model):
         ("fog", "Fog"),
     ], string="Weather Conditions")
 
+    time_total_ids = fields.One2many(
+        "construction.report.lines",
+        "report_id"
+        )
+
     customer = fields.Char("Customer")
     work_line_ids = fields.One2many(
         "construction.report.lines",
-        "report_id", string="Work Lines"
+        "report_id", string="Work Lines",
+        
     )
     stage_id = fields.Many2one(
         "construction.report.stage",
@@ -39,11 +45,23 @@ class ConstructionReport(models.Model):
         "construction.object", string="Object Of Construction"
     )
     product_arrival_ids = fields.One2many(
-        "product.arrival", "report_id", string="Product  Arrival"
+        "product.arrival", "report_id", string="Product  Arrival",
+        group_operator="sum"
     )
     product_consumption_ids = fields.One2many(
         "product.consumption", "report_id", string="Product  Consumption"
     )
+    time_total_hours = fields.Float(
+        "Total Hours",
+        compute="_compute_time_total_hours",
+        store=True
+    )
+
+    @api.depends('time_total_ids.time_total')
+    def _compute_time_total_hours(self):
+        for report in self:
+            report.time_total_hours = sum(report.time_total_ids.mapped('time_total'))
+
 
     def action_after_aprove(self):
         self._consumptions_picking()
@@ -216,7 +234,8 @@ class ConstructionReportLines(models.Model):
     time_total = fields.Float(
         "Total Hours",
         compute="_compute_time_total",
-        store=True)
+        store=True,
+        group_operator="sum")
 
     work_category_id = fields.Many2one(
         related="work_id.category_id",
