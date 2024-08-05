@@ -33,7 +33,7 @@ class ConstructionReport(models.Model):
     work_line_ids = fields.One2many(
         "construction.report.lines",
         "report_id", string="Work Lines",
-        group_operator="sum"
+        
     )
     stage_id = fields.Many2one(
         "construction.report.stage",
@@ -234,7 +234,8 @@ class ConstructionReportLines(models.Model):
     time_total = fields.Float(
         "Total Hours",
         compute="_compute_time_total",
-        store=True)
+        store=True,
+        group_operator="sum")
 
     work_category_id = fields.Many2one(
         related="work_id.category_id",
